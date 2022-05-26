@@ -1,0 +1,38 @@
+<h1>Bloggers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th colspan="3" >Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <div>
+                <%= link_to user.username, user_path(user) %>
+            </div>
+            <tr>
+                <td><%= article.title %></td>
+                <td><%= article.description %></td>
+                <p><%= pluralize(user.articles.count, "article") %></p>
+                <% if logged_in? %>
+                    <% if user == current_user %> 
+                        <td><%= link_to "View porfile", user %></td>
+                        <td><%= link_to "Edit Article", edit_user_path(user) %></td>
+                    <% end %>
+                    <% if current_user.admin? %>
+                        <% link_to "Delete user", user_path(user), method: :delete,
+                        data: {confirm: "Are you sure? "} %>
+                    <% end %>
+                <% end %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p>
+    <%= link_to "Create a new article", new_article_path %> |
+    <%= link_to "Go back to homepage", root_path %>
+</p>

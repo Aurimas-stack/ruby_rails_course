@@ -1,0 +1,18 @@
+
+<%= form_with(model: @user, local:  true) do |f| %>
+    <p>
+        <%= f.label :username %> <br/>
+        <%= f.text_field :username, placeholder: "enter a username" %>
+    </p>
+    <p>
+        <%= f.label :email %> <br/>
+        <%= f.email_field :email, placeholder: "Enter your email" %>
+    </p>
+    <p>
+        <%= f.label :password %> <br/>
+        <%= f.password_field :password, placeholder: "Enter your password" %>
+    </p>
+    <p>
+        <%= f.submit(@user.new_record? ? "Sign up" : "Update account") %>
+    </p>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Create a new category</h1>
+
+<%= form_with(model: @category, local:  true) do |f| %>
+    <p>
+        <%= f.label :name, "Category name" %> <br/>
+        <%= f.text_field :name, placeholder: "enter a category" %>
+    </p>
+    <p>
+        <%= f.submit "Create a category" %>
+    </p>
+<% end %>

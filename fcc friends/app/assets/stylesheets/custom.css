@@ -1,0 +1,6 @@
+.navbar {
+    background-color: rgb(121, 118, 118) !important;
+}
+.nav-link, .navbar-brand {
+    color: #fff !important;
+}
