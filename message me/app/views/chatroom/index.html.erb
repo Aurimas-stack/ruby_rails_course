@@ -1,0 +1,28 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-primary">FRIENDS</h1>
+    <h4>Say something...</h4>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-7 card shadow-sm p-3 mb-5 bg-body rounded chatbox">
+            <div id="message-container" class="d-flex flex-column justify-content-start card-body">
+               <%= render @messages %> 
+               <!-- @messages is based on 'Message' in controller, 
+                hence you need "messages" folder in views 
+                 -->
+            </div>
+            <%= form_for(@message, html: {class: "border-top d-flex flex-row align-items-center pt-2", role: "form"}, url: message_path, remote: true) do |f| %>
+                <%= f.text_field :body, class: "form-control" %>
+                <%= f.submit "Submit", class: "btn btn-primary me-1", id: "message-btn" %>
+            <% end %>
+        </div>
+        <div class="col"></div>
+        <div class="col-4 card shadow-sm p-3 mb-5 bg-body rounded chatbox">
+            <ul class="list-group card-body">
+                <li class="list-group-item list-el-dark">An item</li>
+                <li class="list-group-item list-el-dark">A second item</li>
+            </ul>        
+        </div>
+    </div>
+</div>

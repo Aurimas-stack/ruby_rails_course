@@ -1,0 +1,38 @@
+.user-follow {
+    color:rgb(20, 146, 230);
+    font-weight: 600;
+    font-size:1.1rem;
+    font-style: italic;
+}
+
+.user-message {
+    margin: 2px;
+}
+
+.list-el-dark {
+    background-color: #212529;
+    color:#fff;
+    border:1px solid grey;
+}
+
+.list-el-dark:hover {
+    cursor: pointer;
+    background-color: #505357;
+}
+
+.chatbox {
+    height: 450px;
+}
+
+.box-pad {
+    padding:50px;
+}
+
+#message-container {
+    overflow: auto;
+    height: 15em;
+}
+
+#message-btn {
+    display:none;
+}
