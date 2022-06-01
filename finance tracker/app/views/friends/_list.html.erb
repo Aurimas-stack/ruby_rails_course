@@ -1,0 +1,7 @@
+<% @friends.each do |friend| %>
+    <%= friend.email %>
+    <%= friend.first_name %>
+    <%= friend.last_name %>
+    <%= link_to "View profile", user_path(friend), class: "btn btn-success" %>
+    <%= link_to "Stop following", friendship_path(friend), data: {turbo_method: :delete}, class: "btn btn-warning" %>
+<% end %>

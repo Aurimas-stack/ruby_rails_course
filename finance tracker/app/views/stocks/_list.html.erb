@@ -1,0 +1,10 @@
+<table>
+    <% @tracked_stocks.each do |stock| %>
+        <%= stock.ticker %>
+        <%= stock.name %>
+        <%= stock.last_price %>
+        <% if current_user.id == @user.id %>
+            <%= link_to "Remove", user_stock_path(stock), data: {turbo_method: :delete}, class: "btn btn-warning" %>
+        <% end %>
+    <% end %>
+</table>

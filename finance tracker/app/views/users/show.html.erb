@@ -1,0 +1,21 @@
+<h2>User details</h2>
+
+<div>
+    <%= render "layout/messages" %>
+</div>
+
+
+email: <%= @user.email  %>
+name: <%= @user.full_name %>
+<% if current_user.not_friends_with?(@user.id) %>
+    <%= link_to "Follow friend", friendships_path(friend: @user), method: :post%>
+<% else %>
+    <span>You are already friends</span>
+<% end %>
+
+
+<% if !@tracked_stocks.empty? %>
+    <%= render "stocks/list" %>
+<% else %> 
+    <p>This user is not tracking any stocks</p>
+<% end %>

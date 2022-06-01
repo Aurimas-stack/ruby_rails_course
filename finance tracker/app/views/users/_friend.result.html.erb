@@ -1,0 +1,16 @@
+<div>
+    <%= render "layout/messages" %>
+</div>
+
+<% if @friends %>
+    <% @friends.each do |friend| %>
+        email: <%= friend.email  %>
+        name: <%= friend.full_name %>
+        <%= link_to "View Profile", user_path(friend), class: "btn btn-success" %>
+        <% if current_user.not_friends_with?(friend.id) %>
+            <%= link_to "Follow friend", friendships_path(friend: friend), method: :post%>
+        <% else %>
+            <span>You are already friends</span>
+        <% end %>
+    <% end %>
+<% end %>
