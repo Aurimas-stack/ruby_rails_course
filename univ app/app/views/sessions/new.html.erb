@@ -1,0 +1,14 @@
+<h1 class="text-center">Log in</h1>
+
+
+<%= form_for(:sessions) do |f| %>
+    <div class="mb-3" >
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter your email..." %>
+    </div>
+    <div class="mb-3" >
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter your password..." %>
+    </div>
+    <%= f.submit "Log in", class: "btn btn-primary" %>
+<% end %>

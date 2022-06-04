@@ -1,0 +1,21 @@
+<h1 class="text-center">Course listing</h1>
+
+<div class="container">
+    <div class="row">
+        <% @courses.each do |course| %>
+            <div class="card col-5">
+                <div class="card-body">
+                    <h5 class="card-title"><%= course.short_name %>: <%= course.name %></h5>
+                    <p class="card-text"><%= course.description %></p>
+                    <% if logged_in? && !(current_user.courses.include?(course)) %>
+                        <%= link_to "Enroll", course_enroll_path(course_id: course.id), method: :post %>
+                    <% end %>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+

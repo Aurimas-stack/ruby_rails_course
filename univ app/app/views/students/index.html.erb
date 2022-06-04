@@ -1,0 +1,16 @@
+<h1 class="text-center">Students directory</h1>
+
+<div class="container">
+    <div class="row">
+        <% @students.each do |student| %>
+            <div class="card col-6">
+                <div class="card-body">
+                    <h5 class="card-title">Name: <%= student.name %></h5>
+                    <h6>Email: : <%= student.email %></h6>
+                    <p class="card-text">Course Enrollments: None</p>
+                    <%= link_to "View profile", student_path(student) %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

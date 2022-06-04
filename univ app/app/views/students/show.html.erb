@@ -1,0 +1,22 @@
+<h1 class="text-center">Students directory</h1>
+
+<div class="card col-6">
+    <div class="card-body">
+        <h5 class="card-title">Name: <%= @student.name %></h5>
+        <h6>Email: : <%= @student.email %></h6>
+        <p class="card-text">Course Enrollments: 
+            <% if @student.courses.empty? %> 
+                None
+            <% else %>
+                <ul>
+                    <% @student.courses.each do |course| %>
+                        <li><%= course.name %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </p>
+    </div>
+    <% if current_user == @student %>
+        <%= link_to "Edit your profile", edit_student_path(@student), class: "btn btn-warning" %>
+    <% end %>
+</div>
